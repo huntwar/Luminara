@@ -47,6 +47,9 @@ TagManager:
   - name: Room1_Walls
     uniqueID: 2038301359
     locked: 0
+  - name: Room1_Walls_deactivatable
+    uniqueID: 3780079393
+    locked: 0
   - name: Room1_Pillars bottom
     uniqueID: 3641038317
     locked: 0
