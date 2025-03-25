@@ -25,15 +25,21 @@ public class NPCMovements : MonoBehaviour
 
     private IEnumerator RandomMove()
     {
+        Vector3 startPosition = transform.position;
+        Vector3 endPosition = new Vector3(startPosition.x + moveRange, startPosition.y, startPosition.z);
+        bool movingToEnd = true;
+
         while (true)
         {
-            targetPosition = new Vector3(Random.Range(-moveRange, moveRange), transform.position.y, Random.Range(-moveRange, moveRange));
+            Vector3 targetPosition = movingToEnd ? endPosition : startPosition;
             while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
             yield return new WaitForSeconds(Random.Range(1f, 3f));
+            movingToEnd = !movingToEnd; // Toggle direction
         }
     }
 
