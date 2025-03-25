@@ -59,5 +59,8 @@ TagManager:
   - name: Room1_Decoration
     uniqueID: 2639346709
     locked: 0
+  - name: Characters
+    uniqueID: 4135098425
+    locked: 0
   m_RenderingLayers:
   - Default
