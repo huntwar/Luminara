@@ -7,26 +7,25 @@ public class SkeletonAI : MonoBehaviour
     public float loseRangeMultiplier = 1.5f;
     public float patrolRange = 3f;
     public float attackRange = 1f;  // Attack distance
-    public float attackCooldown = 1.5f;  // Time between attacks
-    public int attackDamage = 2;  // Damage dealt to player
-    private Transform player;
+
+    private Transform playerTransform;
+    private GameObject player;
     private bool chasing = false;
     private bool canAttack = true;
     private Vector2 startPosition;
     private Vector2 targetPosition;
-    private HealthSystem playerHealth;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerHealth = player.GetComponent<HealthSystem>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         startPosition = transform.position;
         targetPosition = startPosition + Vector2.right * patrolRange;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer < detectionRange)
         {
@@ -45,6 +44,8 @@ public class SkeletonAI : MonoBehaviour
             }
             else if (canAttack)
             {
+                Debug.Log("Skeleton Attack");
+                Destroy(player);
                 AttackPlayer();
             }
         }
@@ -56,15 +57,13 @@ public class SkeletonAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
     }
 
     void AttackPlayer()
     {
         canAttack = false;
-        playerHealth.TakeDamage(attackDamage);
-       
-        Invoke(nameof(ResetAttack), attackCooldown);  // Cooldown before next attack
+
     }
 
     void ResetAttack()
