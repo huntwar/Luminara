@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SkeletonAI : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class SkeletonAI : MonoBehaviour
 
     void Update()
     {
+        if (playerTransform == null) return; 
+
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer < detectionRange)
@@ -42,12 +44,7 @@ public class SkeletonAI : MonoBehaviour
             {
                 ChasePlayer();
             }
-            else if (canAttack)
-            {
-                Debug.Log("Skeleton Attack");
-                Destroy(player);
-                AttackPlayer();
-            }
+
         }
         else
         {
@@ -55,20 +52,41 @@ public class SkeletonAI : MonoBehaviour
         }
     }
 
+    void AttackPlayer()
+    {
+
+        if (player == null) return;
+ 
+        canAttack = false;
+        RestartGame();
+    }
+
+    void RestartGame()
+    {
+        Debug.Log("Game Over! Restarting...");
+        // Destroy the player
+        Destroy(player, 0.5f);
+        // Wait for a short delay before restarting
+        Invoke("ReloadScene", 2f);
+    }
+
+    void ReloadScene()
+    {
+        // Reload the current scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
     void ChasePlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
     }
-
-    void AttackPlayer()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        canAttack = false;
-
-    }
-
-    void ResetAttack()
-    {
-        canAttack = true;
+        if (other.CompareTag("Player") && canAttack)
+        {
+            Debug.Log("Skeleton Attacked the Player!");
+            AttackPlayer();
+        }
     }
 
     void Patrol()
