@@ -2079,6 +2079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 710268907}
   Walls_deactivatable: Walls_deactivatable
+  Doors: Doors
 --- !u!483693784 &537316172
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -2677,6 +2678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 710268907}
   Walls_deactivatable: Walls_deactivatable
+  Doors: Doors
 --- !u!1 &710268906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 710268907}
   Walls_deactivatable: Walls_deactivatable
+  Doors: Doors
 --- !u!1 &816676957
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,6 +7053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 710268907}
   Walls_deactivatable: Walls_deactivatable
+  Doors: Doors
 --- !u!1 &2026675010
 GameObject:
   m_ObjectHideFlags: 0
