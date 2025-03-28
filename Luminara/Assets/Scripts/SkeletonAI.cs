@@ -25,7 +25,7 @@ public class SkeletonAI : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform == null) return; // ✅ Prevents the error when player is destroyed
+        if (playerTransform == null) return; 
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
@@ -72,7 +72,7 @@ public class SkeletonAI : MonoBehaviour
         // Destroy the player
         Destroy(player);
         // Wait for a short delay before restarting
-        Invoke("ReloadScene", 2f);
+        Invoke("ReloadScene", 1.5f);
     }
 
     void ReloadScene()
