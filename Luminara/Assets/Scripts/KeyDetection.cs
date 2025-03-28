@@ -59,10 +59,8 @@ public class KeyDetection : MonoBehaviour
 
     private IEnumerator FollowPlayer()
     {
-        while (key != null)
-        {
-            key.transform.position = Vector3.MoveTowards(key.transform.position, player.transform.position, followSpeed * Time.deltaTime);
-            yield return null;
-        }
+
+        key.transform.position = Vector3.MoveTowards(key.transform.position, player.transform.position, followSpeed * Time.deltaTime);
+        yield return null;
     }
 }

@@ -2679,6 +2679,11 @@ MonoBehaviour:
   grid: {fileID: 710268907}
   Walls_deactivatable: Walls_deactivatable
   Doors: Doors
+--- !u!1 &673761761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6576105616817240161, guid: fef575e138a23414b951e2e757278b33, type: 3}
+  m_PrefabInstance: {fileID: 1386201394715904393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &710268906
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,6 +7219,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3783392839268298236, guid: fef575e138a23414b951e2e757278b33, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 673761761}
     - target: {fileID: 6576105616817240161, guid: fef575e138a23414b951e2e757278b33, type: 3}
       propertyPath: m_Name
       value: Key
