@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1029429705
+--- !u!1 &295587095
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,10 +327,10 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029429705}
+  m_GameObject: {fileID: 295587095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 450b8f52bb370d24c97d1521b6827961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 295587098}
@@ -2654,7 +2654,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029429705}
+  m_GameObject: {fileID: 604691295}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3554735, y: -0.8596573, z: -0.107396394}
@@ -7159,7 +7159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c921ebb3439987040844ddc445dfa732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 295587100}
   smoothSpeed: 5
   zOffset: -10
 --- !u!1660057539 &9223372036854775807
@@ -7167,4 +7167,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2026675013}
-  - {fileID: 1029429708}
+  - {fileID: 604691296}
+  - {fileID: 295587100}
