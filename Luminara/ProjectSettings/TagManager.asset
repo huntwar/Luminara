@@ -47,8 +47,20 @@ TagManager:
   - name: Room1_Walls
     uniqueID: 2038301359
     locked: 0
+  - name: Room1_Decoration
+    uniqueID: 2639346709
+    locked: 0
   - name: Room1_Walls_deactivatable
     uniqueID: 3780079393
+    locked: 0
+  - name: Room1_Doors
+    uniqueID: 3725811951
+    locked: 0
+  - name: Decoration_Outside_Rooms
+    uniqueID: 3693833267
+    locked: 0
+  - name: Hallway_Ground_Hole
+    uniqueID: 3260259655
     locked: 0
   - name: Room1_Pillars bottom
     uniqueID: 3641038317
@@ -56,14 +68,11 @@ TagManager:
   - name: Room1_Pillars top
     uniqueID: 2291655107
     locked: 0
-  - name: Room1_Decoration
-    uniqueID: 2639346709
-    locked: 0
-  - name: Room1_Doors
-    uniqueID: 3725811951
-    locked: 0
   - name: Characters
     uniqueID: 4135098425
+    locked: 0
+  - name: Ground_Outside_Rooms
+    uniqueID: 3380389247
     locked: 0
   m_RenderingLayers:
   - Default
