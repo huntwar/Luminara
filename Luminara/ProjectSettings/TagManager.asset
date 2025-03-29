@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Front
+  - Background
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Room1_Decoration
     uniqueID: 2639346709
+    locked: 0
+  - name: Room1_Doors
+    uniqueID: 3725811951
     locked: 0
   - name: Characters
     uniqueID: 4135098425
