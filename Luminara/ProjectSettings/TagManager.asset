@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Room1_Walls_deactivatable_RoomBorder
+    uniqueID: 2401840799
+    locked: 0
   - name: Room1_Ground
     uniqueID: 3032339033
     locked: 0
