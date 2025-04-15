@@ -77,5 +77,20 @@ TagManager:
   - name: Ground_Outside_Rooms
     uniqueID: 3380389247
     locked: 0
+  - name: Room2_Ground
+    uniqueID: 3476352177
+    locked: 0
+  - name: Room2_Walls
+    uniqueID: 1109980509
+    locked: 0
+  - name: Room2_Walls_deactivatable
+    uniqueID: 3712221987
+    locked: 0
+  - name: Room2_Decoration
+    uniqueID: 3168489711
+    locked: 0
+  - name: Room2_Doors
+    uniqueID: 2213553499
+    locked: 0
   m_RenderingLayers:
   - Default
