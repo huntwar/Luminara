@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SkeletonAI : MonoBehaviour
+public class SkeletonAttack : MonoBehaviour
 {
     public float attackRange = 1f;  // Attack distance
 

@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2092699308}
+    - target: {fileID: 1487735822719154784, guid: bce68104a5c9ff84dbddb86c28c234ca, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 05866e69c96187f48ba8b5f794d2f13f, type: 2}
     - target: {fileID: 1909412782492380062, guid: bce68104a5c9ff84dbddb86c28c234ca, type: 3}
       propertyPath: m_Name
       value: Skeleton
