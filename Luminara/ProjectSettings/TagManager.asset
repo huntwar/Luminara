@@ -71,9 +71,6 @@ TagManager:
   - name: Room1_Pillars top
     uniqueID: 2291655107
     locked: 0
-  - name: Characters
-    uniqueID: 4135098425
-    locked: 0
   - name: Ground_Outside_Rooms
     uniqueID: 3380389247
     locked: 0
@@ -82,6 +79,9 @@ TagManager:
     locked: 0
   - name: Room2_Walls
     uniqueID: 1109980509
+    locked: 0
+  - name: Characters
+    uniqueID: 4135098425
     locked: 0
   - name: Room2_Walls_deactivatable
     uniqueID: 3712221987
