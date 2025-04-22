@@ -8692,10 +8692,34 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f1e590a9ae8f14646bd199cab657c269, type: 2}
+    - target: {fileID: 943251312524288448, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Decoration
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557441055032651970, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Pillars_top
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155934170561008754, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Walls_deactivatable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629366826446871414, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Pillars_bottom
+      objectReference: {fileID: 0}
     - target: {fileID: 4177503367387554425, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f1e590a9ae8f14646bd199cab657c269, type: 2}
+    - target: {fileID: 4344890669199454500, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Doors
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547514485107980137, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 5398876374069357825, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -8724,6 +8748,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f1e590a9ae8f14646bd199cab657c269, type: 2}
+    - target: {fileID: 7653508964521953717, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      propertyPath: m_Name
+      value: Room1_Walls
+      objectReference: {fileID: 0}
     - target: {fileID: 7720898033028109079, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3554735
@@ -14028,6 +14056,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5604772562473712171, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 633123839}
+    - targetCorrespondingSourceObject: {fileID: 5604772562473712171, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1604721078}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7653508964521953717, guid: 468dd4cfdb06e654aa3f91eefe529c47, type: 3}
       insertIndex: -1
@@ -14998,6 +15029,100 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!1 &1604721077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604721078}
+  - component: {fileID: 1604721080}
+  - component: {fileID: 1604721081}
+  m_Layer: 6
+  m_Name: CollisionTrigger_Room2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604721078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604721077}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 102.7, y: -32.3, z: -0.2628891}
+  m_LocalScale: {x: 22.64, y: 33.4, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 594742655}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1604721080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604721077}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1604721081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604721077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ef6abcc57ac884e9161e58fb5eb2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 594742653}
+  Walls_deactivatable: Room2_Walls_deactivatable
+  Doors: Room2_Doors
 --- !u!1 &1665651734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1909412782492380062, guid: bce68104a5c9ff84dbddb86c28c234ca, type: 3}
@@ -27682,7 +27807,7 @@ GameObject:
   - component: {fileID: 1817015259}
   - component: {fileID: 1817015258}
   m_Layer: 6
-  m_Name: CollisionTrigger
+  m_Name: CollisionTrigger_Room1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
