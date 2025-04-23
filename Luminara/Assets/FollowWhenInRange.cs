@@ -1,23 +1,32 @@
-using UnityEngine;
 using Pathfinding;
+using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class FollowWhenInRange : MonoBehaviour
 {
+    [Header("References")]
     public Transform player;
-    public float followRange = 3f; // Distance at which skeleton starts following
+    [SerializeField] private Animator animator;
+
+    [Header("Settings")]
+    public float followRange = 5f; // Distance at which skeleton starts following
+
     private AIDestinationSetter destinationSetter;
     private AILerp aiLerp;
 
-    void Start()
+    private void Start()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
         aiLerp = GetComponent<AILerp>();
 
         if (destinationSetter != null)
             destinationSetter.target = null; // Start with no target
+
+        if (aiLerp != null)
+            aiLerp.enabled = false;
     }
 
-    void Update()
+    private void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -38,6 +47,13 @@ public class FollowWhenInRange : MonoBehaviour
 
             if (aiLerp != null && aiLerp.enabled)
                 aiLerp.enabled = false;
+        }
+
+        // Set walk animation based on movement
+        if (animator != null && aiLerp != null)
+        {
+            //bool isMoving = aiLerp.velocity.magnitude > 0.00f;
+            animator.SetBool("IsWalking", aiLerp.enabled);
         }
     }
 }

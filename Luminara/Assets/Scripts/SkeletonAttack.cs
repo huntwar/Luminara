@@ -1,59 +1,65 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class SkeletonAttack : MonoBehaviour
 {
-    public float attackRange = 1f;  // Attack distance
+    [Header("References")]
+    [SerializeField] private Animator skeletonAnimator;
 
     private Transform playerTransform;
     private GameObject player;
-    private bool canAttack = true;
+    private bool canAttack = false;
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
         player = GameObject.FindGameObjectWithTag("Player");
+
+        if (skeletonAnimator == null)
+            Debug.LogWarning("Animator not assigned on " + gameObject.name);
     }
 
     void Update()
     {
-        if (playerTransform == null) return;
-
-
+        // Currently empty, but can be used for cooldown or range logic
     }
-
 
     void AttackPlayer()
     {
-
         if (player == null) return;
 
+        if (canAttack)
+        {
+            Debug.Log($"can attack: {canAttack}");
+            skeletonAnimator.SetTrigger("Attack");
+        }
         canAttack = false;
+
         RestartGame();
+
+
     }
 
     void RestartGame()
     {
         Debug.Log("Game Over! Restarting...");
-        // Destroy the player
         Destroy(player);
-        // Wait for a short delay before restarting
-        Invoke("ReloadScene", 1.5f);
+        Invoke(nameof(ReloadScene), 3f);
+
     }
 
     void ReloadScene()
     {
-        // Reload the current scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && canAttack)
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Skeleton Attacked the Player!");
+            canAttack = true;
             AttackPlayer();
         }
     }
-
 }
