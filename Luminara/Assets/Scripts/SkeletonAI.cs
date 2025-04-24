@@ -25,7 +25,7 @@ public class SkeletonAI : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform == null) return; 
+        if (playerTransform == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 

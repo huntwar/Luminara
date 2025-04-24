@@ -41,41 +41,140 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Room1_Walls_deactivatable_RoomBorder
+  - name: Hallway_Ground
+    uniqueID: 1681248155
+    locked: 0
+  - name: Hallway_Walls
+    uniqueID: 311299163
+    locked: 0
+  - name: Hallway_Walls_deactivatable
+    uniqueID: 4214029663
+    locked: 0
+  - name: Tutorial_Walls_deactivatable_RoomBorder
     uniqueID: 2401840799
     locked: 0
-  - name: Room1_Ground
+  - name: Tutorial_Ground
     uniqueID: 3032339033
     locked: 0
-  - name: Room1_Walls
-    uniqueID: 2038301359
-    locked: 0
-  - name: Room1_Decoration
-    uniqueID: 2639346709
-    locked: 0
-  - name: Room1_Walls_deactivatable
+  - name: Tutorial_Walls_deactivatable
     uniqueID: 3780079393
     locked: 0
-  - name: Room1_Doors
-    uniqueID: 3725811951
+  - name: Tutorial_Walls
+    uniqueID: 2038301359
     locked: 0
-  - name: Decoration_Outside_Rooms
-    uniqueID: 3693833267
+  - name: Tutorial_Decoration
+    uniqueID: 2639346709
+    locked: 0
+  - name: Tutorial_Doors
+    uniqueID: 3725811951
     locked: 0
   - name: Hallway_Ground_Hole
     uniqueID: 3260259655
     locked: 0
-  - name: Room1_Pillars bottom
+  - name: Decoration_Outside_Rooms
+    uniqueID: 3693833267
+    locked: 0
+  - name: Tutorial_Pillars bottom
     uniqueID: 3641038317
     locked: 0
-  - name: Room1_Pillars top
+  - name: Tutorial_Pillars top
     uniqueID: 2291655107
+    locked: 0
+  - name: Ground_Outside_Rooms
+    uniqueID: 3380389247
+    locked: 0
+  - name: Room2_Ground
+    uniqueID: 3476352177
+    locked: 0
+  - name: Room3_Walls
+    uniqueID: 96415281
+    locked: 0
+  - name: Room2_Walls
+    uniqueID: 1109980509
     locked: 0
   - name: Characters
     uniqueID: 4135098425
     locked: 0
-  - name: Ground_Outside_Rooms
-    uniqueID: 3380389247
+  - name: Room2_Walls_deactivatable
+    uniqueID: 3712221987
+    locked: 0
+  - name: Room2_Decoration
+    uniqueID: 3168489711
+    locked: 0
+  - name: Room2_Doors
+    uniqueID: 2213553499
+    locked: 0
+  - name: Room3_Ground
+    uniqueID: 1703219579
+    locked: 0
+  - name: Room3_Decoration
+    uniqueID: 479836875
+    locked: 0
+  - name: Room3_Walls_deactivatable
+    uniqueID: 2122309719
+    locked: 0
+  - name: Room3_Doors
+    uniqueID: 4038732265
+    locked: 0
+  - name: Room6_Ground
+    uniqueID: 914287113
+    locked: 0
+  - name: Room6_Walls
+    uniqueID: 2377211753
+    locked: 0
+  - name: Room6_Walls_deactivatable
+    uniqueID: 1211158209
+    locked: 0
+  - name: Room6_Decoration
+    uniqueID: 3863305037
+    locked: 0
+  - name: Room6_Doors
+    uniqueID: 3287813515
+    locked: 0
+  - name: Room5_Ground
+    uniqueID: 3229093287
+    locked: 0
+  - name: Room5_Walls
+    uniqueID: 140854357
+    locked: 0
+  - name: Room5_Decoration
+    uniqueID: 1721253867
+    locked: 0
+  - name: Room5_Walls_deactivatable
+    uniqueID: 2702668749
+    locked: 0
+  - name: Room5_Doors
+    uniqueID: 4004118481
+    locked: 0
+  - name: Room4_Ground
+    uniqueID: 4239586609
+    locked: 0
+  - name: Room4_Walls
+    uniqueID: 3119367963
+    locked: 0
+  - name: Room4_Decoration
+    uniqueID: 1318685399
+    locked: 0
+  - name: Room4_Walls_deactivatable
+    uniqueID: 1683911363
+    locked: 0
+  - name: Room4_Doors
+    uniqueID: 3842577119
+    locked: 0
+  - name: Room1_Ground
+    uniqueID: 382665043
+    locked: 0
+  - name: Room1_Walls
+    uniqueID: 4092869313
+    locked: 0
+  - name: Room1_Decoration
+    uniqueID: 3712546867
+    locked: 0
+  - name: Room1_Walls_deactivatable
+    uniqueID: 2500792979
+    locked: 0
+  - name: Room1_Doors
+    uniqueID: 60711993
     locked: 0
   m_RenderingLayers:
   - Default
