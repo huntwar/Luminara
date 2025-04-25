@@ -10,15 +10,31 @@ namespace Luminara.SoundManager
         [SerializeField] private SoundsSO SO;
         private static SoundManager instance = null;
         private AudioSource audioSource;
+        private AudioSource musicSource;
 
-        private void Awake()
-        {
-            if(!instance)
-            {
-                instance = this;
-                audioSource = GetComponent<AudioSource>();
-            }
-        }
+private void Awake()
+{
+    if (instance != null && instance != this)
+    {
+        Destroy(gameObject);
+        return;
+    }
+
+    instance = this;
+    DontDestroyOnLoad(gameObject);
+
+    AudioSource[] sources = GetComponents<AudioSource>();
+    if (sources.Length < 2)
+    {
+        musicSource = gameObject.AddComponent<AudioSource>();
+    }
+    else
+    {
+        musicSource = sources[1]; 
+    }
+
+    audioSource = GetComponent<AudioSource>();
+}
 
         public static void PlaySound(SoundType sound, AudioSource source = null, float volume = 1)
         {
@@ -39,7 +55,20 @@ namespace Luminara.SoundManager
                 instance.audioSource.PlayOneShot(randomClip, volume * soundList.volume);
             }
         }
+
+        public static void PlayMusic(SoundType musicType, float volume = 1f)
+    {
+        SoundList soundList = instance.SO.sounds[(int)musicType];
+        AudioClip musicClip = soundList.sounds[0];
+
+        instance.musicSource.clip = musicClip;
+        instance.musicSource.loop = true;
+        instance.musicSource.volume = volume * soundList.volume;
+        instance.musicSource.outputAudioMixerGroup = soundList.mixer;
+        instance.musicSource.Play();
     }
+    }
+    
 
     [Serializable]
     public struct SoundList

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Luminara.SoundManager;
 
 public class KeyDetection : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class KeyDetection : MonoBehaviour
     {
         if (canPickUp && Input.GetKeyDown(KeyCode.E))
         {
+            SoundManager.PlaySound(SoundType.KeyPickup);
+
             if (isGoldenKey)
             {
                 shouldFollow = true; // Start following
