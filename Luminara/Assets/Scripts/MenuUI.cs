@@ -8,6 +8,11 @@ public class MenuUI : MonoBehaviour
         SceneManager.LoadSceneAsync("Haunted Castle");
     }
 
+    public void Settings()
+    {
+
+    }
+
 }
 
 /* Volume settings
