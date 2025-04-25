@@ -20,7 +20,7 @@ public class SkeletonAI : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player");
         startPosition = transform.position;
-        targetPosition = startPosition + Vector2.right * patrolRange;
+        
     }
 
     void Update()
@@ -38,22 +38,7 @@ public class SkeletonAI : MonoBehaviour
             chasing = false;
         }
 
-        if (chasing)
-        {
-            if (distanceToPlayer > attackRange)
-            {
-                ChasePlayer();
-            }
-            else if (canAttack)
-            {
-                Debug.Log("Skeleton Attack");
-                AttackPlayer();
-            }
-        }
-        else
-        {
             Patrol();
-        }
     }
 
 
@@ -81,12 +66,7 @@ public class SkeletonAI : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
-    void ChasePlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-    }
-
-    void Patrol()
+   void Patrol()
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 

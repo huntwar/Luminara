@@ -7,59 +7,75 @@ public class SkeletonAttack : MonoBehaviour
     [Header("References")]
     [SerializeField] private Animator skeletonAnimator;
 
+    [Header("Settings")]
+    public float speed = 2f;
+    public float patrolRange = 3f;
+    public float detectionRange = 5f;
+
     private Transform playerTransform;
     private GameObject player;
-    private bool canAttack = false;
+    private bool isAttacking = false;
+    private bool isPlayerInRange = false;
+
+    private Vector2 startPosition;
+    private Vector2 targetPosition;
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = player?.transform;
 
         if (skeletonAnimator == null)
             Debug.LogWarning("Animator not assigned on " + gameObject.name);
+
+        startPosition = transform.position;
+        targetPosition = startPosition + Vector2.right * patrolRange;
     }
 
     void Update()
     {
-        // Currently empty, but can be used for cooldown or range logic
+        if (playerTransform == null || isAttacking)
+            return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        isPlayerInRange = distanceToPlayer <= detectionRange;
+
+        Patrol();
+
     }
 
-    void AttackPlayer()
+    void Patrol()
     {
-        if (player == null) return;
+        skeletonAnimator.SetBool("IsWalking", true);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-        if (canAttack)
+        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
-            Debug.Log($"can attack: {canAttack}");
-            skeletonAnimator.SetTrigger("Attack");
+            targetPosition = targetPosition == (startPosition + Vector2.right * patrolRange)
+                ? startPosition + Vector2.left * patrolRange
+                : startPosition + Vector2.right * patrolRange;
         }
-        canAttack = false;
-
-        RestartGame();
-
-
-    }
-
-    void RestartGame()
-    {
-        Debug.Log("Game Over! Restarting...");
-        Destroy(player);
-        Invoke(nameof(ReloadScene), 3f);
-
-    }
-
-    void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isAttacking)
         {
-            canAttack = true;
-            AttackPlayer();
+            isAttacking = true;
+            skeletonAnimator.SetTrigger("Attack");
+            StartCoroutine(HandleAttackSequence());
         }
+    }
+
+    System.Collections.IEnumerator HandleAttackSequence()
+    {
+        // Wait for animation length (adjust to your animation duration or use Animation Events)
+        yield return new WaitForSeconds(1f);
+
+        if (player != null)
+            Destroy(player);
+
+        yield return new WaitForSeconds(2f); // Delay before restarting scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

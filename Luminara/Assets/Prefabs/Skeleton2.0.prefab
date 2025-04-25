@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2769495870178670970, guid: 0737acb13a4e6144bac8f83d78376d52, type: 3}
       propertyPath: m_SortingLayer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2769495870178670970, guid: 0737acb13a4e6144bac8f83d78376d52, type: 3}
       propertyPath: m_SortingLayerID
@@ -284,6 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonAnimator: {fileID: 6204179429193650301}
+  speed: 2
+  patrolRange: 3
+  detectionRange: 5
 --- !u!114 &8011612266681796009
 MonoBehaviour:
   m_ObjectHideFlags: 0
