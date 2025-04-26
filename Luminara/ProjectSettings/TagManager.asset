@@ -56,11 +56,11 @@ TagManager:
   - name: Tutorial_Ground
     uniqueID: 3032339033
     locked: 0
-  - name: Tutorial_Walls_deactivatable
-    uniqueID: 3780079393
-    locked: 0
   - name: Tutorial_Walls
     uniqueID: 2038301359
+    locked: 0
+  - name: Tutorial_Walls_deactivatable
+    uniqueID: 3780079393
     locked: 0
   - name: Tutorial_Decoration
     uniqueID: 2639346709
@@ -86,9 +86,6 @@ TagManager:
   - name: Room2_Ground
     uniqueID: 3476352177
     locked: 0
-  - name: Room3_Walls
-    uniqueID: 96415281
-    locked: 0
   - name: Room2_Walls
     uniqueID: 1109980509
     locked: 0
@@ -106,6 +103,9 @@ TagManager:
     locked: 0
   - name: Room3_Ground
     uniqueID: 1703219579
+    locked: 0
+  - name: Room3_Walls
+    uniqueID: 96415281
     locked: 0
   - name: Room3_Decoration
     uniqueID: 479836875
