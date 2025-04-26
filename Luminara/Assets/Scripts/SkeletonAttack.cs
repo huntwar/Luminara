@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Luminara.SoundManager;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class SkeletonAttack : MonoBehaviour
@@ -63,6 +64,7 @@ public class SkeletonAttack : MonoBehaviour
         {
             isAttacking = true;
             skeletonAnimator.SetTrigger("Attack");
+            SoundManager.PlaySound(SoundType.Skeleton);
             StartCoroutine(HandleAttackSequence());
         }
     }
