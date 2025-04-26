@@ -1,4 +1,5 @@
 using UnityEngine;
+using Luminara.SoundManager;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,10 +13,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private Animator animator;
 
+    private AudioSource footstepSource;
+    private bool isWalkingSoundPlaying = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        footstepSource = gameObject.AddComponent<AudioSource>();
+        footstepSource.loop = true;
     }
 
     // Update is called once per frame
@@ -39,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("yVelocity", Mathf.Abs(rb.linearVelocity.y));
 
         Flip();
+        HandleFootsteps();
     }
 
     private void FixedUpdate()
@@ -63,4 +71,31 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    private void HandleFootsteps()
+{
+    bool isMoving = Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f;
+
+    if (isMoving && isGrounded)
+    {
+        if (!isWalkingSoundPlaying)
+        {
+            SoundList stepSound = SoundManager.GetSound(SoundType.Steps);
+
+            footstepSource.clip = stepSound.sounds[Random.Range(0, stepSound.sounds.Length)];
+            footstepSource.volume = stepSound.volume;
+            footstepSource.outputAudioMixerGroup = stepSound.mixer;
+            footstepSource.Play();
+            isWalkingSoundPlaying = true;
+        }
+    }
+    else
+    {
+        if (isWalkingSoundPlaying)
+        {
+            footstepSource.Stop();
+            isWalkingSoundPlaying = false;
+        }
+    }
+}
 }

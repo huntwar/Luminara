@@ -36,6 +36,11 @@ private void Awake()
     audioSource = GetComponent<AudioSource>();
 }
 
+    public static SoundList GetSound(SoundType type)
+    {
+        return instance.SO.sounds[(int)type];
+    }
+
         public static void PlaySound(SoundType sound, AudioSource source = null, float volume = 1)
         {
             SoundList soundList = instance.SO.sounds[(int)sound];
