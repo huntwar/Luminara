@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class WallDisablingWhenEnterRoom : MonoBehaviour
+public class WallDisablingWhenEnterRoom1 : MonoBehaviour
 {
     public Grid grid; // assign this in the Inspector or find it in Start()
-    public string Walls_deactivatable = "Walls_deactivatable";
-    public string Doors = "Doors";
-    public string ChandelierOutsideL = "ChandelierOutsideLeft";
-    public string ChandelierOutsideR = "ChandelierOutsideRight";
+    public string Walls_deactivatable = "Room1/Room1_Walls_deactivatable";
+    public string Doors = "Room1/Room1_Doors";
+    //public string ChandelierOutsideLeft = "Room1_ChandelierOutsideLeft";
+    //public string ChandelierOutsideRight = "Room1_ChandelierOutsideRight";
     private Transform walls;
     private Transform door;
-    private Transform chandelierLeft;
-    private Transform chandelierRight;
-    private bool isActive = true;
+    //private Transform chandelierLeft;
+    //private Transform chandelierRight;
 
     void Start()
     {
@@ -21,74 +20,40 @@ public class WallDisablingWhenEnterRoom : MonoBehaviour
         door = grid.transform.Find(Doors);
         if (door == null)
             Debug.LogWarning("Layer not found in Start: " + Doors);
-        chandelierLeft = grid.transform.Find(ChandelierOutsideL);
+        /*chandelierLeft = grid.transform.Find(ChandelierOutsideLeft);
         if (chandelierLeft == null)
-            Debug.LogWarning("Layer not found in Start: " + ChandelierOutsideL);
-        chandelierRight = grid.transform.Find(ChandelierOutsideR);
+            Debug.LogWarning("Layer not found in Start: " + ChandelierOutsideLeft);
+        chandelierRight = grid.transform.Find(ChandelierOutsideRight);
         if (chandelierRight == null)
-            Debug.LogWarning("Layer not found in Start: " + ChandelierOutsideR);
+            Debug.LogWarning("Layer not found in Start: " + ChandelierOutsideRight);*/
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            ToggleLayer(Walls_deactivatable, Doors, ChandelierOutsideL, ChandelierOutsideR, true);
+            ToggleLayer(false);
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            ToggleLayer(Walls_deactivatable, Doors, ChandelierOutsideL, ChandelierOutsideR, false);
+            ToggleLayer(true);
         }
     }
 
-    void ToggleLayer(string Walls_deactivatable, string Doors, string ChandelierOutsideL, string ChandelierOutsideR, bool isActive)
+    void ToggleLayer(bool activeState)
     {
-        Transform Walls = grid.transform.Find(Walls_deactivatable);
-        if (Walls != null)
-        {
-            Walls.gameObject.SetActive(!isActive); // Fully disable
-            // Or: layerTransform.GetComponent<TilemapRenderer>().enabled = false;
-        }
-        else
-        {
-            Walls.gameObject.SetActive(isActive);
-            Debug.LogWarning("Layer not found: " + Walls_deactivatable);
-        }
+        if (walls != null)
+            walls.gameObject.SetActive(activeState);
 
-        Transform Door = grid.transform.Find(Doors);
-        if (Doors != null)
-        {
-            Door.gameObject.SetActive(!isActive); // Fully disable
-            // Or: layerTransform.GetComponent<TilemapRenderer>().enabled = false;
-        }
-        else
-        {
-            Door.gameObject.SetActive(isActive);
-            Debug.LogWarning("Layer not found: " + Doors);
-        }
-        Transform ChandelierL = grid.transform.Find(ChandelierOutsideL);
-        if (ChandelierOutsideL != null)
-        {
-            ChandelierL.gameObject.SetActive(!isActive); // Fully disable
-            // Or: layerTransform.GetComponent<TilemapRenderer>().enabled = false;
-        }
-        else
-        {
-            ChandelierL.gameObject.SetActive(isActive);
-            Debug.LogWarning("Layer not found: " + ChandelierOutsideL);
-        }
-        Transform ChandelierR = grid.transform.Find(ChandelierOutsideR);
-        if (ChandelierOutsideR != null)
-        {
-            ChandelierR.gameObject.SetActive(!isActive); // Fully disable
-            // Or: layerTransform.GetComponent<TilemapRenderer>().enabled = false;
-        }
-        else
-        {
-            ChandelierR.gameObject.SetActive(isActive);
-            Debug.LogWarning("Layer not found: " + ChandelierOutsideR);
-        }
+        if (door != null)
+            door.gameObject.SetActive(activeState);
+
+        /*if (chandelierLeft != null)
+            chandelierLeft.gameObject.SetActive(activeState);
+
+        if (chandelierRight != null)
+            chandelierRight.gameObject.SetActive(activeState);*/
     }
 }
