@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Luminara.SoundManager;
+﻿using Luminara.SoundManager;
+using UnityEngine;
 
 public class KeyDetection : MonoBehaviour
 {
@@ -11,40 +11,44 @@ public class KeyDetection : MonoBehaviour
     private bool shouldFollow = false;
 
     private KeySound keySound;
+    private string pickUpKey;
 
     private void Start()
     {
+        pickUpKey = GameData.Instance.myPickUpKey.text;
         player = GameObject.FindGameObjectWithTag("Player");
 
         keySound = GetComponentInChildren<KeySound>();
     }
 
-private void Update()
-{
-    if (canPickUp && Input.GetKeyDown(KeyCode.E))
+    private void Update()
     {
-        if (isGoldenKey)
+
+        KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), pickUpKey);
+        if (canPickUp && Input.GetKeyDown(keyCode))
         {
-            shouldFollow = true; // Start following
-        }
-        else
-        {
-            Destroy(key);
+            if (isGoldenKey)
+            {
+                shouldFollow = true; // Start following
+            }
+            else
+            {
+                Destroy(key);
+            }
+
+            SoundManager.PlaySound(SoundType.KeyPickup);
+
+            if (keySound != null)
+            {
+                keySound.StopKeySound();
+            }
         }
 
-        SoundManager.PlaySound(SoundType.KeyPickup);
-
-        if (keySound != null)
+        if (shouldFollow)
         {
-            keySound.StopKeySound();
+            FollowPlayer();
         }
     }
-
-    if (shouldFollow)
-    {
-        FollowPlayer();
-    }
-}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
