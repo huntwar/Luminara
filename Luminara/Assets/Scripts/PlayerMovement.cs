@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private bool isFacingRight = true;
 
+    private float footstepTimer = 0f;
+    private float footstepInterval = 0.3f;
+
     [SerializeField] private Rigidbody2D rb;
     private Animator animator;
 
@@ -22,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         footstepSource = gameObject.AddComponent<AudioSource>();
-        footstepSource.loop = true;
     }
 
     // Update is called once per frame
@@ -72,30 +74,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void HandleFootsteps()
+private void HandleFootsteps()
 {
     bool isMoving = Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f;
 
     if (isMoving && isGrounded)
     {
-        if (!isWalkingSoundPlaying)
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0f)
         {
             SoundList stepSound = SoundManager.GetSound(SoundType.Steps);
 
-            footstepSource.clip = stepSound.sounds[Random.Range(0, stepSound.sounds.Length)];
-            footstepSource.volume = stepSound.volume;
-            footstepSource.outputAudioMixerGroup = stepSound.mixer;
-            footstepSource.Play();
-            isWalkingSoundPlaying = true;
+            footstepSource.PlayOneShot(stepSound.sounds[Random.Range(0, stepSound.sounds.Length)], stepSound.volume);
+            footstepTimer = footstepInterval;
         }
     }
     else
     {
-        if (isWalkingSoundPlaying)
-        {
-            footstepSource.Stop();
-            isWalkingSoundPlaying = false;
-        }
+        footstepTimer = 0f;
     }
 }
 }

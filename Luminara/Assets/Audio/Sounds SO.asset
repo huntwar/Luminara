@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: BackgroundMusic
-    volume: 1
+    volume: 0.75
     mixer: {fileID: 0}
     sounds:
     - {fileID: 8300000, guid: 6c0c5087181444dd081cd793f62e9776, type: 3}
@@ -23,33 +23,30 @@ MonoBehaviour:
     mixer: {fileID: 0}
     sounds:
     - {fileID: 8300000, guid: 28f39bbaa01b94587a02fb1c4b8baa88, type: 3}
-    - {fileID: 8300000, guid: 8f467185a93fa428590ea3a2abfc4269, type: 3}
   - name: KeyPickup
     volume: 1
     mixer: {fileID: 0}
     sounds:
     - {fileID: 8300000, guid: 3510e343b55004987b062c9e3391faa9, type: 3}
   - name: KeyDetection
-    volume: 1
+    volume: 0.1
     mixer: {fileID: 0}
     sounds:
     - {fileID: 8300000, guid: bc58533fb8b79425db3370a49df528a4, type: 3}
   - name: Door
-    volume: 1
+    volume: 0.75
     mixer: {fileID: 0}
     sounds:
     - {fileID: 8300000, guid: 898da5714853e4c27b131ebd5e7b60bf, type: 3}
-  - name: Death
-    volume: 1
-    mixer: {fileID: 0}
-    sounds: []
   - name: Steps
-    volume: 1
+    volume: 0.1
     mixer: {fileID: 0}
     sounds:
-    - {fileID: 8300000, guid: a2957d5b5d8164815a4b52147147dfd1, type: 3}
-    - {fileID: 8300000, guid: 9b0d4fdb0860a4ac795230ecedb542b8, type: 3}
-    - {fileID: 8300000, guid: 94e26f07787c944eabb4436752ed7e22, type: 3}
+    - {fileID: 8300000, guid: e06a90bcf365b4c33b8da480df50c3fe, type: 3}
+    - {fileID: 8300000, guid: b15f59cbb1af047669de51478c663614, type: 3}
+    - {fileID: 8300000, guid: 1c1168ed74136440c879f89243cb451b, type: 3}
+    - {fileID: 8300000, guid: b0756cfc816934f76a1bdc97adda67f0, type: 3}
+    - {fileID: 8300000, guid: 5edff45ac90794f50948071bdda49c21, type: 3}
   - name: Fire
     volume: 1
     mixer: {fileID: 0}
