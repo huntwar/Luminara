@@ -7,8 +7,8 @@ namespace Luminara.SoundManager
         KeyPickup,
         KeyDetection,
         Door,
-        Death,
         Steps,
         Fire,
+        GameOver,
     }
 }

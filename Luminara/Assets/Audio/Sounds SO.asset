@@ -24,7 +24,7 @@ MonoBehaviour:
     sounds:
     - {fileID: 8300000, guid: 28f39bbaa01b94587a02fb1c4b8baa88, type: 3}
     - {fileID: 8300000, guid: 8f467185a93fa428590ea3a2abfc4269, type: 3}
-  - name: Key
+  - name: KeyPickup
     volume: 1
     mixer: {fileID: 0}
     sounds:
@@ -53,4 +53,10 @@ MonoBehaviour:
   - name: Fire
     volume: 1
     mixer: {fileID: 0}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 6426e092496324fe0b3510ab8dc5f95e, type: 3}
+  - name: GameOver
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 38ebe657bd67e4d3dbf6ab6f7673d9a1, type: 3}
