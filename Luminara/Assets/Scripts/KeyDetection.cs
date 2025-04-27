@@ -25,7 +25,7 @@ public class KeyDetection : MonoBehaviour
     {
 
         KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), pickUpKey);
-        if (canPickUp && Input.GetKeyDown(keyCode))
+        if (canPickUp && Input.GetKeyDown(pickUpKey))
         {
             if (isGoldenKey)
             {
@@ -54,7 +54,7 @@ public class KeyDetection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("🔑 Key detected! Press E to pick up.");
+            Debug.Log($"🔑 Key detected! Press {pickUpKey} to pick up.");
             canPickUp = true;
         }
     }

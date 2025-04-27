@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using Luminara.SoundManager;
+﻿using Luminara.SoundManager;
+using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class SkeletonAttack : MonoBehaviour
@@ -64,36 +64,34 @@ public class SkeletonAttack : MonoBehaviour
         {
             isAttacking = true;
             skeletonAnimator.SetTrigger("Attack");
-            SoundManager.PlaySound(SoundType.Skeleton);
             StartCoroutine(HandleAttackSequence());
+            SoundManager.PlaySound(SoundType.Skeleton);
         }
     }
 
-System.Collections.IEnumerator HandleAttackSequence()
-{
-    yield return new WaitForSeconds(1f);
-
-    if (player != null)
+    IEnumerator HandleAttackSequence()
     {
-        Camera mainCamera = Camera.main;
-        if (mainCamera != null && mainCamera.transform.parent == player.transform)
+        yield return new WaitForSeconds(1f);
+
+        if (player != null)
         {
-            mainCamera.transform.parent = null;
-            Debug.Log("Camera detached from Player before destroying.");
+            Destroy(player);
+            ShowGameOverScreen();
         }
 
-        Destroy(player);
     }
 
+    private void ShowGameOverScreen()
+    {
+        GameOverManager gameOverManager = FindAnyObjectByType<GameOverManager>();
 
-    GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
-    if (gameOverManager != null)
-    {
-        gameOverManager.ShowGameOverScreen();
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowGameOverScreen();
+        }
+        else
+        {
+            Debug.LogError("GameOverManager not found!");
+        }
     }
-    else
-    {
-        Debug.LogError("GameOverManager not found!");
-    }
-}
 }

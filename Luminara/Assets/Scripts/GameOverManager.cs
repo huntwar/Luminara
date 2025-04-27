@@ -1,6 +1,6 @@
+using Luminara.SoundManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Luminara.SoundManager;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -12,12 +12,16 @@ public class GameOverManager : MonoBehaviour
 
         SoundManager.PlaySound(SoundType.GameOver);
 
-        StartCoroutine(WaitAndReload());
+        Invoke(nameof(ReloadScene), 2f);
+
+
     }
 
-    private System.Collections.IEnumerator WaitAndReload()
+
+
+    private void ReloadScene()
     {
-        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }

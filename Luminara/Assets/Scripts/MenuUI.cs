@@ -24,6 +24,7 @@ public class MenuUI : MonoBehaviour
         {
             foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
             {
+        //KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), pickUpKey);
                 if (Input.GetKeyDown(keyCode))
                 {
                     if (IsKeyboardKey(keyCode))
