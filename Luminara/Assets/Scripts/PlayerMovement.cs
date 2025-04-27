@@ -1,4 +1,5 @@
 using UnityEngine;
+using Luminara.SoundManager;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,13 +10,21 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private bool isFacingRight = true;
 
+    private float footstepTimer = 0f;
+    private float footstepInterval = 0.3f;
+
     [SerializeField] private Rigidbody2D rb;
     private Animator animator;
+
+    private AudioSource footstepSource;
+    private bool isWalkingSoundPlaying = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        footstepSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("yVelocity", Mathf.Abs(rb.linearVelocity.y));
 
         Flip();
+        HandleFootsteps();
     }
 
     private void FixedUpdate()
@@ -63,4 +73,26 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+private void HandleFootsteps()
+{
+    bool isMoving = Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f;
+
+    if (isMoving && isGrounded)
+    {
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0f)
+        {
+            SoundList stepSound = SoundManager.GetSound(SoundType.Steps);
+
+            footstepSource.PlayOneShot(stepSound.sounds[Random.Range(0, stepSound.sounds.Length)], stepSound.volume);
+            footstepTimer = footstepInterval;
+        }
+    }
+    else
+    {
+        footstepTimer = 0f;
+    }
+}
 }
