@@ -4,10 +4,11 @@ namespace Luminara.SoundManager
     {
         BackgroundMusic,
         Skeleton,
-        Key,
+        KeyPickup,
+        KeyDetection,
         Door,
-        Death,
         Steps,
         Fire,
+        GameOver,
     }
 }
